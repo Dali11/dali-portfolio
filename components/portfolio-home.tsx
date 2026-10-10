@@ -1,3 +1,11 @@
+import {
+  SiNextdotjs, SiReact, SiTypescript, SiJavascript, SiTailwindcss,
+  SiPython, SiFastapi, SiNodedotjs, SiPostgresql,
+  SiPandas, SiGit, SiGithub, SiVercel, SiLinux, SiQgis,
+  SiGdal,
+} from "react-icons/si";
+import { FaServer, FaBrain, FaDatabase } from "react-icons/fa";
+import { TbChartDots3 } from "react-icons/tb";
 import Image from "next/image";
 import {
   ArrowRight, ArrowUpRight, BrainCircuit, Code2, Database,
@@ -35,7 +43,53 @@ const services = [
   }
 ];
 
-const tools = ["Next.js", "React", "TypeScript", "Tailwind CSS", "Python", "PostgreSQL", "PostGIS", "Vercel"];
+const toolGroups = [
+  {
+    title: "Development",
+    description: "Building modern web applications",
+    tools: [
+      { name: "Next.js", icon: SiNextdotjs },
+      { name: "React", icon: SiReact },
+      { name: "TypeScript", icon: SiTypescript },
+      { name: "JavaScript", icon: SiJavascript },
+      { name: "Tailwind CSS", icon: SiTailwindcss },
+      { name: "Node.js", icon: SiNodedotjs },
+    ],
+  },
+  {
+    title: "Data & GIS",
+    description: "Working with data, databases and maps",
+    tools: [
+      { name: "Python", icon: SiPython },
+      { name: "FastAPI", icon: SiFastapi },
+      { name: "PostgreSQL", icon: SiPostgresql },
+      { name: "PostGIS", icon: FaDatabase },
+      { name: "Pandas", icon: SiPandas },
+      { name: "GeoPandas", icon: TbChartDots3 },
+      { name: "QGIS", icon: SiQgis },
+      { name: "GDAL", icon: SiGdal },
+    ],
+  },
+  {
+    title: "Infrastructure",
+    description: "Shipping and running applications",
+    tools: [
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
+      { name: "Vercel", icon: SiVercel },
+      { name: "Linux", icon: SiLinux },
+      { name: "VPS", icon: FaServer },
+    ],
+  },
+  {
+    title: "AI & LLMs",
+    description: "Integrating intelligent features",
+    tools: [
+      { name: "LLMs", icon: FaBrain },
+      { name: "AI Integration", icon: FaBrain },
+    ],
+  },
+];
 
 export default function PortfolioHome() {
   return (
@@ -136,9 +190,33 @@ export default function PortfolioHome() {
             <a className="text-link" href="mailto:hello@dalitso.dev">More about me <ArrowUpRight size={16} /></a>
           </div>
           <div className="tools-panel">
-            <p className="tools-title">Tools I work with</p>
-            <div className="tools-list">
-              {tools.map((tool) => <span key={tool}>{tool}</span>)}
+            <p className="tools-title">Tools I work with<span className="tools-title-dot">.</span></p>
+            <p className="tools-intro">The technologies behind my projects.</p>
+            <div className="tools-groups">
+              {toolGroups.map((group, groupIndex) => (
+                <section className="tool-group" key={group.title}>
+                  <div className="tool-group-heading">
+                    <span className="tool-group-number">{String(groupIndex + 1).padStart(2, "0")}</span>
+                    <div>
+                      <h3>{group.title}</h3>
+                      <p>{group.description}</p>
+                    </div>
+                  </div>
+                  <div className="tools-list">
+                    {group.tools.map(({ name, icon: Icon }, index) => (
+                      <div
+                        className="tool-item"
+                        key={name}
+                        style={{ "--tool-delay": `${(groupIndex * 55) + (index * 35)}ms` } as React.CSSProperties}
+                        title={name}
+                      >
+                        <span className="tool-icon"><Icon aria-hidden="true" /></span>
+                        <span className="tool-name">{name}</span>
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              ))}
             </div>
           </div>
         </section>
