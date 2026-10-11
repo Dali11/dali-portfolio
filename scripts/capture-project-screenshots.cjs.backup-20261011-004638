@@ -1,0 +1,133 @@
+const { chromium } = require("playwright");
+const fs = require("node:fs");
+const path = require("node:path");
+
+const outputDir = path.join(process.cwd(), "public/images/projects");
+
+const projects = [
+  {
+    name: "Malawi Food Security Monitor",
+    url: "https://frontend-seven-omega-94.vercel.app/",
+    file: "malawi-food-security.png",
+    map: true,
+  },
+  {
+    name: "Akonzi Sofa Furniture",
+    url: "https://akonzifurniture.com/",
+    file: "akonzi-furniture.png",
+  },
+  {
+    name: "Travel Lab Malawi",
+    url: "https://travel-lab-theta.vercel.app/",
+    file: "travel-lab.png",
+  },
+  {
+    name: "MeepleMania Games",
+    url: "https://meeple.brandfletch.com/",
+    file: "meeplemania.png",
+  },
+  {
+    name: "Brandfletch Dev Studio",
+    url: "https://dev.brandfletch.com/",
+    file: "brandfletch-studio.png",
+  },
+  {
+    name: "Jonge Investments",
+    url: "https://jonge-investment.vercel.app/",
+    file: "jonge-investments.png",
+  },
+];
+
+(async () => {
+  fs.mkdirSync(outputDir, { recursive: true });
+
+  const browser = await chromium.launch({ headless: true });
+  const results = [];
+
+  try {
+    for (const project of projects) {
+      const page = await browser.newPage({
+        viewport: { width: 1440, height: 1100 },
+        deviceScaleFactor: 1,
+      });
+
+      try {
+        console.log(`\nLoading ${project.name}`);
+
+        await page.goto(project.url, {
+          waitUntil: "domcontentloaded",
+          timeout: 90000,
+        });
+
+        await page.waitForLoadState("networkidle", {
+          timeout: 20000,
+        }).catch(() => {
+          console.log("Network remains active; continuing with visual checks.");
+        });
+
+        if (project.map) {
+          // Allow React components, API responses and map tiles to render.
+          await page.waitForTimeout(8000);
+
+          const mapInfo = await page.evaluate(() => {
+            const maps = [...document.querySelectorAll(
+              ".leaflet-container, .mapboxgl-map, [class*='map-container'], [class*='MapContainer']"
+            )];
+
+            return {
+              title: document.title,
+              mapElements: maps.length,
+              mapSizes: maps.map((element) => ({
+                width: Math.round(element.getBoundingClientRect().width),
+                height: Math.round(element.getBoundingClientRect().height),
+              })),
+              visibleText: document.body.innerText.slice(0, 600),
+            };
+          });
+
+          console.log("Dashboard check:", JSON.stringify(mapInfo, null, 2));
+
+          // Give map tiles another chance to appear.
+          await page.waitForTimeout(7000);
+        } else {
+          await page.waitForTimeout(3000);
+        }
+
+        const imagePath = path.join(outputDir, project.file);
+
+        await page.screenshot({
+          path: imagePath,
+          fullPage: false,
+          animations: "disabled",
+        });
+
+        console.log(`Saved: ${imagePath}`);
+        results.push({ name: project.name, success: true });
+      } catch (error) {
+        console.error(`FAILED: ${project.name}: ${error.message}`);
+        results.push({
+          name: project.name,
+          success: false,
+          error: error.message,
+        });
+      } finally {
+        await page.close();
+      }
+    }
+  } finally {
+    await browser.close();
+  }
+
+  console.log("\n===== RESULTS =====");
+
+  for (const result of results) {
+    console.log(
+      `${result.success ? "PASS" : "FAIL"} ${result.name}` +
+      (result.error ? `: ${result.error}` : "")
+    );
+  }
+
+  if (results.some((result) => !result.success)) {
+    process.exitCode = 1;
+  }
+})();

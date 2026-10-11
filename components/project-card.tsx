@@ -17,8 +17,8 @@ export default function ProjectCard({ project }: { project: Project }) {
           sizes="(max-width: 680px) 92vw, (max-width: 1050px) 46vw, 24vw"
         />
 
-        <span className="visual-label">{project.category}</span>
       </div>
+      <span className="visual-label">{project.category}</span>
 
       <div className="project-meta">
         <span className="project-number">{project.number}</span>

@@ -2,16 +2,28 @@ import type { Metadata, Viewport } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Dalitso — Developer, Builder, Creator",
+  title: {
+    default: "Dalitso Kamphani — Developer, Builder, Creator",
+    template: "%s | Dalitso Kamphani",
+  },
   description:
-    "Portfolio of Dalitso, an independent developer from Malawi building digital products, data platforms and intelligent systems.",
+    "I build digital products that solve real problems. Explore my work across web development, data platforms, geospatial intelligence, and AI integration.",
   applicationName: "Dalitso Portfolio",
   openGraph: {
-    title: "Dalitso — Developer, Builder, Creator",
-    description: "Ideas into interfaces. Vision into software.",
-    type: "website"
-  }
-};
+    title: "Dalitso Kamphani — Digital Products That Solve Real Problems",
+    description:
+      "From data platforms and geospatial intelligence to modern web applications, I turn complex ideas into useful digital experiences.",
+    type: "website",
+    locale: "en_MW",
+    siteName: "Dalitso Kamphani Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Dalitso Kamphani — Developer, Builder, Creator",
+    description:
+      "Digital products, data platforms, geospatial intelligence, and modern web applications.",
+  },
+};;
 
 export const viewport: Viewport = {
   width: "device-width",

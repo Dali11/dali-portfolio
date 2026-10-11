@@ -1,0 +1,86 @@
+export type Project = {
+  number: string;
+  name: string;
+  category: string;
+  description: string;
+  image: string;
+  color: string;
+  href: string;
+  status: string;
+  technologies: string[];
+};
+
+export const projects: Project[] = [
+  {
+    number: "01",
+    name: "Malawi Food Security",
+    category: "DATA · GIS",
+    description:
+      "A food-security monitoring platform that analyses market prices, detects unusual price spikes, calculates district risk scores, and visualises food-price pressure across Malawi.",
+    image: "/images/food-security.svg",
+    color: "mint",
+    href: "#contact",
+    status: "In Progress",
+    technologies: ["Python", "Pandas", "FastAPI", "PostgreSQL", "PostGIS", "Next.js"],
+  },
+  {
+    number: "02",
+    name: "Travel Lab Malawi",
+    category: "TRAVEL · WEB",
+    description:
+      "A tourism platform concept focused on helping travellers discover Malawi's destinations, accommodation, and travel experiences through one digital experience.",
+    image: "/images/travel-lab.svg",
+    color: "coral",
+    href: "#contact",
+    status: "In Progress",
+    technologies: ["Next.js", "React", "TypeScript"],
+  },
+  {
+    number: "03",
+    name: "Jonge Investments",
+    category: "COMMERCE · WEB",
+    description:
+      "A furniture showroom website designed to present product collections, communicate the brand, and create a polished online shopping experience.",
+    image: "/images/jonge-investments.svg",
+    color: "lavender",
+    href: "#contact",
+    status: "In Progress",
+    technologies: ["Next.js", "React", "TypeScript", "Neon"],
+  },
+  {
+    number: "04",
+    name: "Akonzi Sofa Furniture",
+    category: "E-COMMERCE · WEB",
+    description:
+      "A furniture website focused on showcasing sofa collections and helping customers enquire about products and place orders through WhatsApp.",
+    image: "/images/jonge-investments.svg",
+    color: "yellow",
+    href: "#contact",
+    status: "In Progress",
+    technologies: ["Next.js", "React", "CSS"],
+  },
+  {
+    number: "05",
+    name: "NyimboHub",
+    category: "MUSIC · PLATFORM",
+    description:
+      "A music platform in development for emerging artists, with a foundation for music discovery, artist profiles, and future listening experiences.",
+    image: "/images/nyimbohub.svg",
+    color: "coral",
+    href: "#contact",
+    status: "In Progress",
+    technologies: ["Next.js", "React", "Neon", "Cloudflare R2"],
+  },
+  {
+    number: "06",
+    name: "Crazy Chess Battles",
+    category: "INTERACTIVE · WEB",
+    description:
+      "A chess-focused web application with a dedicated battles experience and a custom interface built around interactive gameplay.",
+    image: "/images/travel-lab.svg",
+    color: "mint",
+    href: "#contact",
+    status: "In Progress",
+    technologies: ["Next.js", "React", "TypeScript"],
+  },
+];

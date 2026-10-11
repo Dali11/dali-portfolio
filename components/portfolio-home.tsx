@@ -101,12 +101,13 @@ export default function PortfolioHome() {
           <div className="hero-copy">
             <p className="eyebrow"><span className="eyebrow-dot" /> Independent developer · Malawi</p>
             <h1>
-              I build things<br className="desktop-break" /> that move ideas
-              <span className="headline-highlight"><span className="forward-paint-mistake" aria-hidden="true" /><span className="forward-eraser" aria-hidden="true" />forward.</span>
+              I build digital<br className="desktop-break" /> products that
+              <span className="headline-highlight"> solve real problems.</span>
             </h1>
             <p className="hero-description">
-              From data-driven platforms to useful digital products, I turn complex problems into software people can use.
+              From data platforms and geospatial intelligence to modern web applications, I turn complex ideas into useful digital experiences.
             </p>
+            <p className="hero-tagline">Built in Malawi. Connected to the world.</p>
             <div className="hero-actions">
               <a className="button button-dark" href="#work">View my work <ArrowRight size={17} /></a>
               <a className="button button-light" href="#contact">Let&apos;s connect <ArrowUpRight size={17} /></a>
@@ -139,9 +140,9 @@ export default function PortfolioHome() {
               sizes="(max-width: 760px) 90vw, 48vw"
             />
             <div className="hero-stat">
-              <div><strong>04</strong><span>Featured projects</span></div>
-              <div><strong>∞</strong><span>Ideas in progress</span></div>
-              <div><strong>↗</strong><span>Real-world impact</span></div>
+              <div><strong>06</strong><span>Featured projects</span></div>
+              <div><strong>04</strong><span>Technical focus areas</span></div>
+              <div><strong>MW</strong><span>Malawi-focused work</span></div>
             </div>
           </div>
         </section>
@@ -186,8 +187,9 @@ export default function PortfolioHome() {
           <div className="about-copy">
             <p className="eyebrow">A little about me</p>
             <h2>A builder at heart<span className="lime-period">.</span></h2>
-            <p>I&apos;m a developer from Malawi who enjoys turning ideas into useful, well-crafted software. I care about real-world impact, clean design, and technology that makes a difference for people and communities.</p>
-            <a className="text-link" href="mailto:hello@dalitso.dev">More about me <ArrowUpRight size={16} /></a>
+            <p>My background in Environmental Management shapes how I think about complex systems, people, and the places we live. It drew me toward GIS and data—tools that help reveal patterns and make complicated information easier to understand.</p>
+            <p>I now bring that perspective into web development, data platforms, and digital products. Much of my work is rooted in Malawi: from monitoring food prices and visualising district-level risks to helping businesses build a stronger online presence. I want to create technology that is thoughtfully designed, technically sound, and useful beyond the screen.</p>
+            <a className="text-link" href="#contact">Let&apos;s work together <ArrowUpRight size={16} /></a>
           </div>
           <div className="tools-panel">
             <p className="tools-title">Tools I work with<span className="tools-title-dot">.</span></p>
@@ -227,13 +229,14 @@ export default function PortfolioHome() {
             <p className="eyebrow">Have something in mind?</p>
             <h2>Let&apos;s make it real<span>.</span></h2>
             <p>Open to freelance projects, collaborations and full-time opportunities. Have an idea? Let&apos;s talk.</p>
+            <a className="contact-email" href="mailto:kamphanidali@gmail.com">kamphanidali@gmail.com</a>
           </div>
           <div className="contact-actions">
-            <a className="button button-lime" href="mailto:hello@dalitso.dev">Get in touch <ArrowRight size={17} /></a>
+            <a className="button button-lime" href="mailto:kamphanidali@gmail.com">Get in touch <ArrowRight size={17} /></a>
             <div className="social-links">
-              <a href="https://github.com/" target="_blank" rel="noreferrer" aria-label="GitHub"><Github /></a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin /></a>
-              <a href="mailto:hello@dalitso.dev" aria-label="Email"><Mail /></a>
+              <a href="https://github.com/Dali11" target="_blank" rel="noreferrer" aria-label="GitHub"><Github /></a>
+              <a href="https://www.linkedin.com/in/dalitso-kamphani-765287232" target="_blank" rel="noreferrer" aria-label="LinkedIn"><Linkedin /></a>
+              <a href="mailto:kamphanidali@gmail.com" aria-label="Email"><Mail /></a>
             </div>
           </div>
         </section>
