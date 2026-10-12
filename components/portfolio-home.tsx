@@ -230,6 +230,21 @@ export default function PortfolioHome() {
             <h2>Let&apos;s make it real<span>.</span></h2>
             <p>Open to freelance projects, collaborations and full-time opportunities. Have an idea? Let&apos;s talk.</p>
             <a className="contact-email" href="mailto:kamphanidali@gmail.com">kamphanidali@gmail.com</a>
+            <div className="contact-direct-links">
+              <a href="tel:+265883597334" className="contact-direct-link">
+                <span>Call me</span>
+                <strong>+265 883 597 334</strong>
+              </a>
+              <a
+                href="https://wa.me/265883597334?text=Hi%20Dalitso%21%20I%20came%20across%20your%20portfolio%20and%20would%20like%20to%20discuss%20a%20project%20or%20collaboration%20with%20you."
+                className="contact-direct-link contact-whatsapp"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <span>WhatsApp</span>
+                <strong>Chat with me ↗</strong>
+              </a>
+            </div>
           </div>
           <div className="contact-actions">
             <a className="button button-lime" href="mailto:kamphanidali@gmail.com">Get in touch <ArrowRight size={17} /></a>
